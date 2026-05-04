@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Local env files
+.env
+.env.local
+.env.*.local
+
+# Personal assets
+public/uploads/resume.pdf
+src/assets/dulingo_qrcode.png
+src/assets/profile_photo.png
+
+# Editor
+.DS_Store

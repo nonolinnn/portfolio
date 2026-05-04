@@ -1,0 +1,74 @@
+:root {
+  --bg:      #FAF9F6;
+  --hairline: #DDD9D1;
+  --font-serif: "DM Serif Display", Georgia, serif;
+  --font-sans:  "DM Sans", "Inter", sans-serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: #1A1A1A;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+/* ── Navbar glass morphism (backdrop needs vendor prefix) ── */
+.navbar-glass {
+  background: rgba(250, 249, 246, 0.90);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* ── NONO outline stroke (non-standard CSS) ── */
+.name-nono {
+  color: transparent;
+  -webkit-text-stroke: 2px #6B6B6B;
+  paint-order: stroke fill;
+}
+
+/* ── Hero name: responsive font-size via clamp ── */
+.hero-name {
+  font-size: clamp(48px, 15vw, 80px);
+}
+@media (min-width: 640px) {
+  .hero-name {
+    font-size: clamp(80px, 12vw, 160px);
+  }
+}
+
+
+/* ── Typewriter cursor blink ── */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.cursor-blink {
+  animation: cursor-blink 0.7s step-start infinite;
+}
+
+/* ── Hero photo: desktop grayscale + blur, reveal on hover ── */
+@media (min-width: 768px) {
+  .hero-photo {
+    filter: grayscale(80%) blur(2px);
+    transition: filter 0.7s ease-in-out;
+  }
+  .hero-photo:hover {
+    filter: grayscale(0%) blur(0px);
+  }
+}
+
+/* ── Contact heading: responsive font-size via clamp ── */
+.contact-heading {
+  font-size: clamp(36px, 10vw, 60px);
+  margin-bottom: 32px;
+}
+@media (min-width: 768px) {
+  .contact-heading {
+    font-size: clamp(48px, 7vw, 96px);
+    margin-bottom: 56px;
+  }
+}
