@@ -1,3 +1,6 @@
+import { useEffect, useState } from 'react'
+import { getCalApi } from '@calcom/embed-react'
+
 const navLinks = [
   { href: '#about', label: 'About me' },
   { href: '#experience', label: 'Experience' },
@@ -6,6 +9,31 @@ const navLinks = [
 ]
 
 export default function Navbar() {
+  const [autoShake, setAutoShake] = useState(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setAutoShake(true)
+      setTimeout(() => setAutoShake(false), 400)
+    }, 2000)
+    return () => clearTimeout(timer)
+  }, [])
+
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({ namespace: 'quick-chat' })
+      cal('ui', {
+        theme: 'light',
+        cssVarsPerTheme: {
+          light: { 'cal-brand': '#B5845A' },
+          dark: { 'cal-brand': '#B5845A' },
+        },
+        hideEventTypeDetails: false,
+        layout: 'month_view',
+      })
+    })()
+  }, [])
+
   return (
     <nav className="
       navbar-glass
@@ -40,9 +68,14 @@ export default function Navbar() {
       </ul>
 
       {/* CTA button */}
-      <a href="#contact" className="btn-cta">
-        Let's Talk
-      </a>
+      <button
+        className={`btn-cta btn-shake active:scale-95 ${autoShake ? 'btn-shake-auto' : ''}`}
+        data-cal-namespace="quick-chat"
+        data-cal-link="nono-linn/quick-chat"
+        data-cal-config='{"layout":"month_view","theme":"light"}'
+      >
+        Let's Chat
+      </button>
 
     </nav>
   )
