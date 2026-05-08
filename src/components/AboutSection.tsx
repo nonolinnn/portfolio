@@ -1,5 +1,4 @@
-import { useRef, useState, useEffect } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 const infoBlocks = [
   {
@@ -20,77 +19,59 @@ const infoBlocks = [
   },
 ]
 
-const leftLines = [
-  { text: "Hi, I'm Nono.", className: 'm-0' },
-  { text: 'Started as a bootcamp grad,', className: 'm-0' },
-  { text: 'grew into building scalable products for the web.', className: 'm-0' },
-  { text: '4+ years turning complex requirements', className: 'm-0' },
-  { text: 'into high-performance experiences —', className: 'm-0' },
-  { text: 'and looking for the team worth building with.', className: 'mt-5 italic text-accent-muted' },
-]
-
-const TYPEWRITER_TEXT = "Business logic and user empathy aren't opposites. I make them work together."
-const viewport = { once: true, margin: '-100px' }
+const leftViewport = { once: true, amount: 0.3 }
+const rightViewport = { once: true, margin: '-100px' }
 
 export default function AboutSection() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const inView = useInView(sectionRef, { once: true, margin: '-100px' })
-  const [displayed, setDisplayed] = useState('')
-  const [typingDone, setTypingDone] = useState(false)
-
-  useEffect(() => {
-    if (!inView) return
-
-    let charIndex = 0
-    let intervalId: ReturnType<typeof setInterval>
-
-    const delayId = setTimeout(() => {
-      intervalId = setInterval(() => {
-        charIndex++
-        setDisplayed(TYPEWRITER_TEXT.slice(0, charIndex))
-        if (charIndex >= TYPEWRITER_TEXT.length) {
-          clearInterval(intervalId)
-          setTypingDone(true)
-        }
-      }, 40)
-    }, 1400)
-
-    return () => {
-      clearTimeout(delayId)
-      clearInterval(intervalId)
-    }
-  }, [inView])
-
   return (
     <section
-      ref={sectionRef}
       id="about"
       className="bg-background px-5 md:px-12 min-h-screen flex items-center"
     >
       {/* Mobile: single column   Desktop (md): 60 / 40 two-column */}
       <div className="w-full max-w-350 mx-auto grid grid-cols-1 gap-10 items-start md:grid-cols-[60fr_40fr] md:gap-20">
 
-        {/* Left — display text + body copy */}
+        {/* Left — label + heading + paragraphs */}
         <div>
-          <div className="font-serif text-[clamp(26px,3.2vw,44px)] font-normal leading-6 tracking-[-0.02em] text-primary">
-            {leftLines.map(({ text, className }, i) => (
-              <motion.p
-                key={i}
-                className={className}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={viewport}
-                transition={{ duration: 0.6, ease: 'easeOut', delay: i * 0.15 }}
-              >
-                {text}
-              </motion.p>
-            ))}
-          </div>
+          <motion.p
+            className="section-label text-4 m-0"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={leftViewport}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0 }}
+          >
+            ABOUT ME
+          </motion.p>
 
-          <p className="mt-5 font-sans text-4 font-normal leading-6 text-secondary max-w-130 m-0 min-h-7">
-            {displayed}
-            {!typingDone && <span className="cursor-blink">|</span>}
-          </p>
+          <motion.h2
+            className="font-serif font-normal text-9 text-primary leading-tight tracking-[-0.02em] mt-4 mb-0"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={leftViewport}
+            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
+          >
+            Started as a bootcamp grad, grew into building scalable products for the web.
+          </motion.h2>
+
+          <motion.p
+            className="font-sans text-4 md:text-5 font-normal text-secondary leading-relaxed m-0 mt-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={leftViewport}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.5 }}
+          >
+            Before becoming an engineer, I worked across finance and education. Those years shaped how I collaborate — I learned to translate between very different mindsets, and to stay grounded when communication gets messy.
+          </motion.p>
+
+          <motion.p
+            className="font-sans text-4 md:text-5 font-normal text-secondary leading-relaxed m-0 mt-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={leftViewport}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.7 }}
+          >
+            Outside of work, I enjoy handcrafting. To me, it follows the same logic as building software — both ask you to observe carefully, think from multiple angles, and care about the small details that shape how something feels in the end.
+          </motion.p>
         </div>
 
         {/* Right — info blocks */}
@@ -101,7 +82,7 @@ export default function AboutSection() {
               className={`py-6 px-3 border-b border-hairline${i === 0 ? ' border-t' : ''}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={viewport}
+              viewport={rightViewport}
               transition={{ duration: 0.5, ease: 'easeOut', delay: 0.3 + i * 0.15 }}
             >
               <p className="section-label text-4 mb-2.5 mt-0">{label}</p>
