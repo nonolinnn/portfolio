@@ -45,12 +45,12 @@ export default function Navbar() {
 
       <span className="
         flex items-center gap-2
-        px-[14px] py-[7px]
+        px-3 py-2
         border border-hairline rounded-pill
-        font-sans text-[13px] font-medium text-primary bg-surface
+        font-sans text-3 font-medium text-primary bg-surface
         whitespace-nowrap
       ">
-        <span className="w-[7px] h-[7px] rounded-full bg-[#22c55e] shrink-0" />
+        <span className="w-2 h-2 rounded-full bg-available shrink-0" />
         Open to Opportunities
       </span>
 
@@ -59,7 +59,7 @@ export default function Navbar() {
           <li key={href}>
             <a
               href={href}
-              className="font-sans text-[14px] font-medium text-primary no-underline transition-colors duration-150 hover:text-secondary"
+              className="font-sans text-3 font-medium text-primary no-underline transition-colors duration-150 hover:text-secondary"
             >
               {label}
             </a>

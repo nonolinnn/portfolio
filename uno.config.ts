@@ -7,16 +7,24 @@ export default defineConfig({
   theme: {
     colors: {
       // Backgrounds
-      background:    '#FAF9F6',
-      surface:       '#F2F0EB',
-      hairline:      '#DDD9D1',
+      background:     '#FAF9F6',
+      surface:        '#F2F0EB',
+      'surface-warm': '#FAF4EE',
+      hairline:       '#DDD9D1',
       // Brand
-      accent:        '#B5845A',
+      accent:         '#B5845A',
       'accent-muted': '#9A7B5A',
-      // Text  (renamed so classes read naturally: text-primary, text-secondary …)
-      primary:       '#1A1A1A',
-      secondary:     '#6B6B6B',
-      'dark-brown':  '#2C1A0E',
+      // Text
+      primary:        '#1A1A1A',
+      secondary:      '#6B6B6B',
+      'dark-brown':   '#2C1A0E',
+      // UI
+      'card-border':  '#D9D4CB',
+      'pill-border':  '#C8C3B8',
+      film:           '#3D2A18',
+      // Status
+      available:      '#22C55E',
+      duolingo:       '#58CC02',
     },
     fontFamily: {
       serif: '"DM Serif Display", Georgia, serif',
@@ -56,13 +64,13 @@ export default defineConfig({
 
     'contact-pill':
       'flex-1 flex items-center justify-center gap-2.5 px-6 py-[18px] '
-      + 'border-[0.5px] border-[#C8C3B8] rounded-pill '
+      + 'border-[0.5px] border-pill-border rounded-pill '
       + 'bg-transparent text-primary font-sans text-[13px] font-medium no-underline '
       + 'transition-colors duration-150 hover:bg-surface',
 
     // ── Work card tag ────────────────────────────────────────────────────────
     'work-tag-pill':
       'text-[11px] font-medium font-sans text-secondary '
-      + 'py-1 px-2.5 border-[0.5px] border-[#C8C2B8] rounded-pill',
+      + 'py-1 px-2.5 border-[0.5px] border-pill-border rounded-pill',
   },
 })

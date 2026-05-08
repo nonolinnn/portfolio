@@ -106,7 +106,7 @@ export default function ExperienceSection() {
               >
                 {/* Left accent border — scaleY from top */}
                 <motion.div
-                  className="absolute left-0 top-0 bottom-0 w-[3px] bg-accent"
+                  className="absolute left-0 top-0 bottom-0 w-1 bg-accent"
                   animate={{ scaleY: showVisuals ? 1 : 0 }}
                   transition={{ duration: 0.3, ease: 'easeOut' }}
                   style={{ originY: 0 }}
@@ -118,7 +118,7 @@ export default function ExperienceSection() {
                 </h2>
 
                 {/* Date */}
-                <span className="font-sans text-[13px] font-normal text-secondary whitespace-nowrap mb-2 md:col-start-2 md:row-start-1 md:pt-1.5 md:mb-0">
+                <span className="font-sans text-3 font-bold text-secondary whitespace-nowrap mb-2 md:col-start-2 md:row-start-1 md:pt-1.5 md:mb-0">
                   {exp.date}
                 </span>
 
@@ -129,7 +129,7 @@ export default function ExperienceSection() {
 
                 {/* Tags + Bullets — always visible on desktop, tap-to-expand on mobile */}
                 <motion.div
-                  className="overflow-hidden md:col-start-1 md:row-start-3 md:max-w-[640px]"
+                  className="overflow-hidden md:col-start-1 md:row-start-3 md:max-w-160"
                   initial={isMobile ? { height: 0, opacity: 0 } : false}
                   animate={{
                     height: bulletsVisible ? 'auto' : 0,
@@ -162,18 +162,18 @@ export default function ExperienceSection() {
                     {exp.bullets.map((bullet, j) => (
                       <motion.li
                         key={j}
-                        className="font-sans text-[14px] font-normal text-secondary leading-[1.75] flex items-start gap-2"
+                        className="font-sans text-3.5 font-normal text-secondary leading-6 flex items-start gap-2"
                         initial={{ opacity: 0, x: 30 }}
                         {...(isMobile
                           ? {
-                              animate: isExpanded ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 },
-                              transition: { duration: 0.3, ease: 'easeOut', delay: isExpanded ? j * 0.1 : 0 },
-                            }
+                            animate: isExpanded ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 },
+                            transition: { duration: 0.3, ease: 'easeOut', delay: isExpanded ? j * 0.1 : 0 },
+                          }
                           : {
-                              whileInView: { opacity: 1, x: 0 },
-                              viewport: bulletViewport,
-                              transition: { duration: 0.3, ease: 'easeOut', delay: j * 0.1 },
-                            }
+                            whileInView: { opacity: 1, x: 0 },
+                            viewport: bulletViewport,
+                            transition: { duration: 0.3, ease: 'easeOut', delay: j * 0.1 },
+                          }
                         )}
                       >
                         <span className="text-accent shrink-0 mt-[0.15em]">·</span>

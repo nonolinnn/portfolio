@@ -39,7 +39,7 @@ const pillClass =
   'border-[1.5px] border-dashed border-accent rounded-sm ' +
   'bg-transparent font-sans text-[14px] text-primary no-underline cursor-pointer ' +
   'w-full md:flex-1 ' +
-  'hover:bg-[#FAF4EE] hover:-translate-y-[6px] transition-all duration-[250ms] ease-out'
+  'hover:bg-surface-warm hover:-translate-y-[6px] transition-all duration-[250ms] ease-out'
 
 export default function ContactSection() {
   const [duolingoOpen, setDuolingoOpen] = useState(false)
@@ -52,7 +52,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="bg-background px-5 pt-12 pb-16 md:px-12 md:pt-[100px] md:pb-16 md:border-t md:border-hairline"
+      className="bg-background px-5 pt-12 pb-16 md:px-12 md:pt-25 md:pb-16 md:border-t md:border-hairline"
     >
       {/* Heading — font-size responsive via .contact-heading CSS class */}
       <h2 className="contact-heading font-serif font-normal tracking-[-0.03em] leading-[1.05] text-primary mt-0">
@@ -76,7 +76,7 @@ export default function ContactSection() {
 
         {/* Duolingo — opens modal */}
         <button className={pillClass} onClick={() => setDuolingoOpen(true)}>
-          <span className="text-[#58CC02] text-[14px] leading-none">●</span>
+          <span className="text-duolingo text-3.5 leading-none">●</span>
           Duolingo
         </button>
       </div>
@@ -93,7 +93,7 @@ export default function ContactSection() {
           >
             {/* Close button */}
             <button
-              className="absolute top-3 right-4 font-sans text-[18px] text-secondary bg-transparent border-none cursor-pointer leading-none"
+              className="absolute top-3 right-4 font-sans text-4 text-secondary bg-transparent border-none cursor-pointer leading-none"
               onClick={() => setDuolingoOpen(false)}
               aria-label="Close"
             >
@@ -101,7 +101,7 @@ export default function ContactSection() {
             </button>
 
             {/* Title */}
-            <h3 className="font-sans font-semibold uppercase text-accent-muted text-[22px] tracking-[-0.01em] m-0">
+            <h3 className="font-sans font-semibold uppercase text-accent-muted text-5 tracking-[-0.01em] m-0">
               Add me on Duolingo
             </h3>
 
@@ -109,11 +109,11 @@ export default function ContactSection() {
             <img
               src={duolingoQR}
               alt="Duolingo QR code"
-              className="border border-[#FAF4EE] rounded-sm max-w-[300px] w-full block"
+              className="border border-surface-warm rounded-sm max-w-75 w-full block"
             />
 
             {/* Caption */}
-            <p className="font-sans text-[14px] text-secondary m-0">
+            <p className="font-sans text-3.5 text-secondary m-0">
               Scan or{' '}
               <a
                 href="https://invite.duolingo.com/profile-share/Nonolinonon?via=share_profile_qr"

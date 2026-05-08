@@ -37,7 +37,7 @@ const socialLinks = [
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen overflow-hidden pt-[69px]">
+    <section className="relative min-h-screen overflow-hidden pt-17">
 
       <motion.img
         src={profilePhoto}
@@ -49,7 +49,7 @@ export default function HeroSection() {
       />
 
       <motion.div
-        className="relative w-full flex items-baseline leading-none select-none z-[1] px-5 pt-6 sm:px-12 sm:pt-7"
+        className="relative w-full flex items-baseline leading-none select-none z-1 px-5 pt-6 sm:px-12 sm:pt-7"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, ease: 'easeOut', delay: 0.8 }}
@@ -62,7 +62,7 @@ export default function HeroSection() {
         </span>
       </motion.div>
 
-      <div className="absolute bottom-0 left-0 right-0 z-[1] flex flex-col gap-4 px-5 pb-[52px] sm:px-12 md:px-[4vw] md:flex-row md:items-end md:justify-between md:gap-0">
+      <div className="absolute bottom-0 left-0 right-0 z-1 flex flex-col gap-4 px-5 pb-13 sm:px-12 md:px-[4vw] md:flex-row md:items-end md:justify-between md:gap-0">
 
         <motion.div
           className="flex flex-col gap-3 md:max-w-full md:self-center"
@@ -70,10 +70,10 @@ export default function HeroSection() {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5, ease: 'easeOut', delay: 1.0 }}
         >
-          <p className="font-serif text-[30px] font-medium tracking-[-0.01em] text-primary m-0 md:text-[36px]">
+          <p className="font-serif text-8 font-medium tracking-[-0.01em] text-primary m-0 md:text-9">
             Frontend Engineer
           </p>
-          <p className="font-sans text-[16px] font-normal text-secondary leading-[1.65] m-0 md:text-[20px]">
+          <p className="font-sans text-4 font-normal text-secondary leading-[1.65] m-0 md:text-5">
             From "it works" to "it's delightful" — that's my standard.
           </p>
         </motion.div>

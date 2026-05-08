@@ -68,11 +68,11 @@ export default function AboutSection() {
       className="bg-background px-5 md:px-12 min-h-screen flex items-center"
     >
       {/* Mobile: single column   Desktop (md): 60 / 40 two-column */}
-      <div className="w-full max-w-[1400px] mx-auto grid grid-cols-1 gap-10 items-start md:grid-cols-[60fr_40fr] md:gap-20">
+      <div className="w-full max-w-350 mx-auto grid grid-cols-1 gap-10 items-start md:grid-cols-[60fr_40fr] md:gap-20">
 
         {/* Left — display text + body copy */}
         <div>
-          <div className="font-serif text-[clamp(26px,3.2vw,44px)] font-normal leading-[1.25] tracking-[-0.02em] text-primary">
+          <div className="font-serif text-[clamp(26px,3.2vw,44px)] font-normal leading-6 tracking-[-0.02em] text-primary">
             {leftLines.map(({ text, className }, i) => (
               <motion.p
                 key={i}
@@ -87,7 +87,7 @@ export default function AboutSection() {
             ))}
           </div>
 
-          <p className="mt-5 font-sans text-4 font-normal leading-[1.75] text-secondary max-w-[520px] m-0 min-h-[1.75em]">
+          <p className="mt-5 font-sans text-4 font-normal leading-6 text-secondary max-w-130 m-0 min-h-7">
             {displayed}
             {!typingDone && <span className="cursor-blink">|</span>}
           </p>
@@ -105,7 +105,7 @@ export default function AboutSection() {
               transition={{ duration: 0.5, ease: 'easeOut', delay: 0.3 + i * 0.15 }}
             >
               <p className="section-label text-4 mb-2.5 mt-0">{label}</p>
-              <p className="font-sans text-[14px] font-normal text-primary leading-[1.7] m-0 whitespace-pre-line">
+              <p className="font-sans text-3.5 font-normal text-primary leading-6 m-0 whitespace-pre-line">
                 {text}
               </p>
             </motion.div>

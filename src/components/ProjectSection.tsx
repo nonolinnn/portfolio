@@ -37,7 +37,7 @@ export default function ProjectSection() {
       id="project"
       className="bg-background px-5 md:px-12 min-h-screen flex items-center"
     >
-      <div className="w-full max-w-[1400px] mx-auto">
+      <div className="w-full max-w-350 mx-auto">
 
         {/* Section header */}
         <div className="mb-12">
@@ -70,7 +70,7 @@ export default function ProjectSection() {
             >
               {/* Inner: hover animation (lift + shadow) */}
               <motion.div
-                className="group flex flex-col overflow-hidden rounded-lg border-[0.5px] border-[#D9D4CB] bg-surface max-w-[600px] w-full mx-auto h-full"
+                className="group flex flex-col overflow-hidden rounded-lg border-1 border-card-border bg-surface max-w-150 w-full mx-auto h-full"
                 whileHover={{ y: -6, boxShadow: '0 8px 24px rgba(0,0,0,0.08)' }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
               >
@@ -85,13 +85,13 @@ export default function ProjectSection() {
 
                 {/* Card body */}
                 <div className="flex flex-col gap-[10px] flex-1 p-5">
-                  <p className="font-sans text-[11px] font-semibold tracking-[0.1em] uppercase text-secondary m-0 transition-colors duration-200 ease-out group-hover:text-accent">
+                  <p className="font-sans text-2.5 font-semibold tracking-[0.1em] uppercase text-secondary m-0 transition-colors duration-200 ease-out group-hover:text-accent">
                     {category}
                   </p>
-                  <h3 className="font-serif text-[22px] font-normal tracking-[-0.01em] leading-[1.2] text-primary m-0">
+                  <h3 className="font-serif text-5 font-normal tracking-[-0.01em] leading-[1.2] text-primary m-0">
                     {title}
                   </h3>
-                  <p className="font-sans text-[13px] font-normal text-secondary leading-[1.7] m-0 flex-1">
+                  <p className="font-sans text-3 font-normal text-secondary leading-[1.7] m-0 flex-1">
                     {description}
                   </p>
                   <div className="flex flex-wrap gap-1.5 mt-auto">

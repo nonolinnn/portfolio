@@ -61,6 +61,97 @@ html, body {
   }
 }
 
+/* ── Intro section: vertical film strip marquee ── */
+@keyframes marquee-vertical {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+.marquee-track {
+  animation: marquee-vertical 36s linear infinite;
+}
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
+.marquee-container {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 6%, black 94%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+
+/* ── Horizontal film strip (mobile/tablet) ── */
+@keyframes marquee-horizontal {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track-row {
+  display: flex;
+  width: max-content;
+  animation: marquee-horizontal 36s linear infinite;
+}
+.marquee-container-row:hover .marquee-track-row {
+  animation-play-state: paused;
+}
+.marquee-container-row {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+
+/* Continuous top/bottom perforations on horizontal track */
+.marquee-track-row::before,
+.marquee-track-row::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0.5rem;
+  z-index: 1;
+  background: repeating-linear-gradient(
+    to right,
+    #2C1A0E 0,
+    #2C1A0E 0.4rem,
+    #FAF9F6 0.4rem,
+    #FAF9F6 1rem,
+    #2C1A0E 1rem,
+    #2C1A0E 1.4rem
+  );
+}
+.marquee-track-row::before { top: 0; }
+.marquee-track-row::after  { bottom: 0; }
+
+/* Horizontal film cell */
+.film-cell-row {
+  flex-shrink: 0;
+  background: #2C1A0E;
+  padding: calc(0.5rem + 4px) 1rem;
+}
+
+/* Film cell: dark background only, no per-cell perforations */
+.film-cell {
+  background: #2C1A0E;
+  padding: 1rem calc(0.5rem + 4px);
+}
+
+/* Continuous perforation strips on the track itself */
+.marquee-track::before,
+.marquee-track::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 0.5rem;
+  z-index: 1;
+  background: repeating-linear-gradient(
+    to bottom,
+    #2C1A0E 0,
+    #2C1A0E 0.4rem,
+    #FAF9F6 0.4rem,
+    #FAF9F6 1rem,
+    #2C1A0E 1rem,
+    #2C1A0E 1.4rem
+  );
+}
+.marquee-track::before { left: 0; }
+.marquee-track::after  { right: 0; }
+
 /* ── CTA button shake on hover ── */
 @keyframes btn-shake {
   0%, 100% { transform: translateX(0) rotate(0deg); }

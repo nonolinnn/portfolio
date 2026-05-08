@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection'
+import IntroSection from './components/IntroSection'
 import AboutSection from './components/AboutSection'
 import ExperienceSection from './components/ExperienceSection'
 import ProjectSection from './components/ProjectSection'
@@ -11,6 +12,7 @@ export default function App() {
     <>
       <Navbar />
       <HeroSection />
+      <IntroSection />
       <AboutSection />
       <ExperienceSection />
       <ProjectSection />

@@ -6,10 +6,10 @@ export default function Footer() {
         flex flex-col items-center gap-1.5 text-center
         md:flex-row md:justify-between md:text-left
       ">
-        <p className="font-sans text-[12px] font-normal text-secondary m-0">
+        <p className="font-sans text-3 font-normal text-secondary m-0">
           © 2026 Nono Lin. All rights reserved.
         </p>
-        <p className="font-sans text-[12px] font-normal text-secondary m-0">
+        <p className="font-sans text-3 font-normal text-secondary m-0">
           Designed &amp; Built by Nono Lin
         </p>
       </div>
