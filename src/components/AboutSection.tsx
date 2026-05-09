@@ -34,7 +34,7 @@ export default function AboutSection() {
         {/* Left — label + heading + paragraphs */}
         <div>
           <motion.p
-            className="section-label text-4 m-0"
+            className="section-label text-4 mt-5 md:m-0"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={leftViewport}
